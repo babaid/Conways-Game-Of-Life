@@ -2,7 +2,8 @@
 # projektspezifische Logik hier.
 #
 cmake_minimum_required (VERSION 3.8)
-
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED true)
 project (cgol)
 set(cgol_VERSION_MAJOR 1)
 set(cgol_VERSION_MINOR 0)
@@ -10,10 +11,6 @@ set(cgol_VERSION_MINOR 0)
 #add_executable (CMakeTarget "Conways Game Of Life.cpp" "Conways Game Of Life.h")
 
 # TODO: Fügen Sie bei Bedarf Tests hinzu, und installieren Sie Ziele.
-configure_file(
-  "${PROJECT_SOURCE_DIR}/config.h.in"
-  "${PROJECT_BINARY_DIR}/config.h"
-  )
 
 include_directories("${PROJECT_BINARY_DIR}")
 
@@ -21,16 +18,30 @@ set(EXECUTABLE_NAME "cgol")
 
 add_executable(${EXECUTABLE_NAME} src/main.cpp src/GUI.cpp src/Game.cpp include/Game.h include/GUI.h)
 
-set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake_modules" ${CMAKE_MODULE_PATH})
-find_package(SFML 2.5 REQUIRED system window graphics network)
-target_link_libraries(${EXECUTABLE_NAME} ${SFML_LIBRARIES})
+include(FetchContent)
+
+# add an option for choosing the build type (shared or static)
+
+set(BUILD_SHARED_LIBS ON)
+
+
+FetchContent_Declare(
+ SFML
+ GIT_REPOSITORY https://github.com/SFML/SFML.git
+ GIT_TAG 2.5.1
+)
+FetchContent_MakeAvailable(SFML)
+
+
+
+target_link_libraries(${EXECUTABLE_NAME} sfml-graphics sfml-system sfml-window)
 
 install(TARGETS ${EXECUTABLE_NAME} DESTINATION bin)
 
-include(InstallRequiredSystemLibraries)
-set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/LICENSE")
-set(CPACK_PACKAGE_VERSION_MAJOR "${myproject_VERSION_MAJOR}")
-set(CPACK_PACKAGE_VERSION_MINOR "${myproject_VERSION_MINOR}")
-include(CPack)
+#include(InstallRequiredSystemLibraries)
+#set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/LICENSE")
+#set(CPACK_PACKAGE_VERSION_MAJOR "${myproject_VERSION_MAJOR}")
+#set(CPACK_PACKAGE_VERSION_MINOR "${myproject_VERSION_MINOR}")
+#include(CPack)
 
 

@@ -126,7 +126,8 @@ void Game::generate()
 
 void Game::reset()
 {
-	std::cout << "reset" << std::endl;
+	//std::cout << "reset" << std::endl;
+
 	for (auto it = cells.begin(); it != cells.end(); it++)
 	{
 		kill(it);
