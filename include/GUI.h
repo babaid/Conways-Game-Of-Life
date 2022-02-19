@@ -1,5 +1,9 @@
-#pragma once
+#ifndef GUI_H
+#define GUI_H
+
+#include<vector>
 #include<SFML/Graphics.hpp>
+
 class GUI
 {
 	sf::RenderWindow window;
@@ -16,3 +20,4 @@ public:
 	void change(int, int);
 };
 
+#endif // !GUI_H

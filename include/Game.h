@@ -1,4 +1,5 @@
-#pragma once
+#ifndef GAME_H
+#define GAME_H
 
 
 
@@ -31,3 +32,4 @@ public:
 	bool state(int, int);
 };
 
+#endif

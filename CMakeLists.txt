@@ -2,7 +2,7 @@
 # projektspezifische Logik hier.
 #
 cmake_minimum_required (VERSION 3.8)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED true)
 project (cgol)
 set(cgol_VERSION_MAJOR 1)
@@ -22,7 +22,7 @@ include(FetchContent)
 
 # add an option for choosing the build type (shared or static)
 
-set(BUILD_SHARED_LIBS ON)
+set(BUILD_SHARED_LIBS OFF)
 
 
 FetchContent_Declare(
