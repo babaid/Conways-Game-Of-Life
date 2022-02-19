@@ -1,0 +1,2 @@
+#define cgol_VERSION_MAJOR @cgol_VERSION_MAJOR@
+#define cgol_VERSION_MINOR @cgol_VERSION_MINOR@
