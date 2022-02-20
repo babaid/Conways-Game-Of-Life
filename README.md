@@ -34,5 +34,10 @@ Then navige in your command line to the project folder and type
 cmake --configurate
 cmake --build ./build --config Release --target cgol
 ~~~~
-Now there should be an executable called cgol.exe in the build folder. You can play now! :)
-Check out the screenshots folder if you are curious how the game looks! :)
+Now there should be an executable called cgol.exe in the build folder. You can play now! :) \ 
+Check out the screenshots and GIFs:
+
+The Manual of the game: \
+![Alt Text](https://github.com/babaid/Conways-Game-Of-Life/blob/master/screenshots/manual.png)\
+Some life-action: \
+![Alt Text](https://github.com/babaid/Conways-Game-Of-Life/blob/master/screenshots/moving.gif)\
