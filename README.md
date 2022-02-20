@@ -29,7 +29,7 @@ First clone the project:
 ~~~~
 git clone https://github.com/babaid/Conways-Game-Of-Life
 ~~~~
-Then navige in your command line to the project folder and type
+Then navigate in your command line to the project folder and type
 ~~~~
 cmake --configurate
 cmake --build ./build --config Release --target cgol
